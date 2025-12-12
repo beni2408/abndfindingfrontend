@@ -22,9 +22,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Login attempt:', formData.email);
+    console.log('API URL:', import.meta.env.VITE_API_URL);
+    
     const result = await dispatch(login(formData));
+    console.log('Login result:', result);
+    
     if (result.type === 'auth/login/fulfilled') {
-      navigate('/dashboard');
+      navigate('/feed');
     }
   };
 
